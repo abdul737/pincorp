@@ -1,0 +1,85 @@
+{
+  "name": "react-g",
+  "version": "1.2.0",
+  "description": "Simple and powerful boilerplate for react projects",
+  "main": "src/main.jsx",
+  "repository": "https://github.com/Geebrox/react-g.git",
+  "author": "geebrox",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "build": "cross-env NODE_ENV=production webpack",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:cache": "cypress cache path && cypress cache list && cypress verify",
+    "cy:dev": "yarn dev & wait-on http://localhost:8080",
+    "cy:ci": "yarn cy:dev && yarn cy:run",
+    "report:coverage": "nyc report --reporter=text && nyc report --reporter=text-summary",
+    "lint:es": "eslint ./src/**/*.jsx",
+    "lint:fix:es": "eslint --fix ./src/**/*.jsx"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|jsx)": [
+      "yarn lint:fix:es",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "core-js": "^3.4.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet-async": "^1.0.4",
+    "react-router-dom": "^5.1.2",
+    "regenerator-runtime": "^0.13.3",
+    "typeface-roboto": "^0.0.75"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "@cypress/code-coverage": "^1.10.4",
+    "autoprefixer": "^9.7.1",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-istanbul": "^5.2.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.0",
+    "cssnano": "^4.1.10",
+    "cypress": "^3.8.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.6.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-cypress": "^2.8.1",
+    "eslint-plugin-react": "^7.16.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.1.0",
+    "istanbul-lib-coverage": "^2.0.5",
+    "lint-staged": "^9.5.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "nyc": "^14.1.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-scss": "^2.0.0",
+    "sass-loader": "^8.0.0",
+    "sass-mq": "^5.0.1",
+    "script-ext-html-webpack-plugin": "^2.1.4",
+    "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^2.2.1",
+    "tinify-loader": "^0.2.4",
+    "wait-on": "^3.3.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  }
+}
